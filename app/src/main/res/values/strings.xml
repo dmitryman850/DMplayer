@@ -8,4 +8,5 @@
     <string name="progress_main">Выполняется регистрация/вход</string>
     <string name="settings">Настройки</string>
     <string name="log_out">Log out</string>
+    <string name="btn_without_login">Войти без регистрации и смс</string>
 </resources>

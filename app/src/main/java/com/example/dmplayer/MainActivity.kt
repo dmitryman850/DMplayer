@@ -1,7 +1,8 @@
 package com.example.dmplayer
 
 import android.content.Intent
-import android.content.Intent.*
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var mFirebaseAuth: FirebaseAuth? = null
     private var mProgressBar: ProgressBar? = null
     private var mMainTxtProgressBar: TextView? = null
+    private var mBtnWithoutLogin: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         mBtnRegistration = findViewById(R.id.btn_registration)
         mBtnLogin = findViewById(R.id.btn_login)
+        mBtnWithoutLogin = findViewById(R.id.btn_without_login)
         mEditTxtEmail = findViewById(R.id.edit_txt_email)
         mEditTxtPassword = findViewById(R.id.edit_txt_password)
         mBtnLogin?.setOnClickListener(this)
@@ -33,7 +36,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         mProgressBar = findViewById(R.id.main_progress_bar)
         mMainTxtProgressBar = findViewById(R.id.txt_main_progress_bar)
 
+
         mFirebaseAuth = FirebaseAuth.getInstance()
+
+        mBtnLogin?.setOnClickListener(this)
+        mBtnRegistration?.setOnClickListener(this)
+        mBtnWithoutLogin?.setOnClickListener(this)
 
         authenticationUser()
     }
@@ -46,7 +54,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             mBtnLogin -> {
                 loginUser()
             }
+            mBtnWithoutLogin -> {
+                withoutLoginAndSms()
+            }
         }
+    }
+
+    private fun withoutLoginAndSms() {
+        startActivity(Intent(this, ViewPagerActivity::class.java)
+            .addFlags(FLAG_ACTIVITY_CLEAR_TASK)
+            .addFlags(FLAG_ACTIVITY_NEW_TASK))
     }
 
     private fun authenticationUser() {
@@ -67,9 +84,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when {
             TextUtils.isEmpty(email) -> {
                 Toast.makeText(this, "Введите Email", Toast.LENGTH_SHORT).show()
+                return
             }
             TextUtils.isEmpty(password) -> {
                 Toast.makeText(this, "Введите пароль", Toast.LENGTH_SHORT).show()
+                return
             }
         }
         mProgressBar?.visibility = ProgressBar.VISIBLE
@@ -99,13 +118,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when {
             TextUtils.isEmpty(email) -> {
                 Toast.makeText(this, "Введите Email", Toast.LENGTH_SHORT).show()
+                return
             }
             TextUtils.isEmpty(password) -> {
                 Toast.makeText(this, "Введите пароль", Toast.LENGTH_SHORT).show()
+                return
             }
             password.length < 6 -> {
                 Toast.makeText(this, "Пароль должен состоять минимум из 6 символов",
                 Toast.LENGTH_SHORT).show()
+                return
             }
         }
 

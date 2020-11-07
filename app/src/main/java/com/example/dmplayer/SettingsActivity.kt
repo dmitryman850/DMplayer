@@ -25,8 +25,7 @@ class SettingsActivity : AppCompatActivity(), View.OnClickListener {
         mFirebaseAuth = FirebaseAuth.getInstance()
         mBtnLogOut?.setOnClickListener(this)
 
-        val user = mFirebaseAuth?.currentUser
-        mTxtWelcomeUserName?.text = "Привет ${user?.email}"
+        nameUser()
 
     }
 
@@ -37,13 +36,24 @@ class SettingsActivity : AppCompatActivity(), View.OnClickListener {
                     .addFlags(FLAG_ACTIVITY_CLEAR_TASK)
                     .addFlags(FLAG_ACTIVITY_NEW_TASK))
         } else {
-            return
+            startActivity(Intent(this, MainActivity::class.java)
+                .addFlags(FLAG_ACTIVITY_CLEAR_TASK)
+                .addFlags(FLAG_ACTIVITY_NEW_TASK))
         }
     }
 
     override fun onClick(view: View?) {
         if(view == mBtnLogOut) {
             logOut()
+        }
+    }
+
+    private fun nameUser() {
+        val user = mFirebaseAuth?.currentUser
+        if (user != null) {
+            mTxtWelcomeUserName?.text = "Привет ${user?.email}"
+        } else {
+            mTxtWelcomeUserName?.text = "Привет незнакомец"
         }
     }
 }
