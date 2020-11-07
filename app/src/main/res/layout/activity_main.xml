@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/text_view_dm_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dmplayer_logo"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="50dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@+id/edit_txt_email">
+        <ProgressBar
+            android:id="@+id/main_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/txt_main_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@+id/main_progress_bar"
+            android:text="@string/progress_main"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            android:layout_marginBottom="15dp"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/edit_txt_email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:lines="1"
+        android:hint="@string/hint_enter_email"
+        android:textColorHint="@color/gray"/>
+
+    <EditText
+        android:id="@+id/edit_txt_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_txt_email"
+        android:lines="1"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"
+        android:hint="@string/hint_enter_password"
+        android:layout_marginBottom="16dp"/>
+
+    <View android:id="@+id/strut"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/edit_txt_password"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btn_registration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_txt_password"
+        android:text="@string/txt_registration"
+        android:textSize="16sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/strut"
+        android:layout_marginEnd="10dp"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_txt_password"
+        android:text="@string/txt_login"
+        android:textSize="16sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/strut"
+        android:layout_marginStart="10dp"/>
+
+</RelativeLayout>

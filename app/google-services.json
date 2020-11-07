@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "643913867074",
+    "firebase_url": "https://dmplayer-7292f.firebaseio.com",
+    "project_id": "dmplayer-7292f",
+    "storage_bucket": "dmplayer-7292f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643913867074:android:9c322b1f4d3eb02af1f2db",
+        "android_client_info": {
+          "package_name": "com.example.dmplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643913867074-iviv3jue0j3cam5n98pi8omp3h4h1eu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7Y4s81EbGcWxVtIUpDLSlSQyuf7R1IMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643913867074-iviv3jue0j3cam5n98pi8omp3h4h1eu7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

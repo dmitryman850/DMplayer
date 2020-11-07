@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DMplayer</string>
+    <string name="dmplayer_logo">DMPlayer</string>
+    <string name="hint_enter_email">Введите email</string>
+    <string name="hint_enter_password">Введите пароль</string>
+    <string name="txt_registration">Регистрация</string>
+    <string name="txt_login">Вход</string>
+    <string name="progress_main">Выполняется регистрация/вход</string>
+    <string name="settings">Настройки</string>
+    <string name="log_out">Log out</string>
+</resources>
